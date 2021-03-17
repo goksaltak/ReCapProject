@@ -28,13 +28,14 @@ namespace Business.Constants
         internal static string CustomersUpdated = "Müşteri bilgileri güncellendi";
         internal static string CustomersListed = "Müşteriler listelendi";
         internal static string RentalsAdded = "Araç kiralandı.";
-        internal static string RentalsDeleted="Araç kira kaydı silindi.";
-        internal static string RentalsListed="Kiralama kayıtları listelendi.";
-        internal static string RentalsUpdated="Araç kiralama kaydı güncellendi";
+        internal static string RentalsDeleted = "Araç kira kaydı silindi.";
+        internal static string RentalsListed = "Kiralama kayıtları listelendi.";
+        internal static string RentalsUpdated = "Araç kiralama kaydı güncellendi";
         internal static string RentalReturnDateNotNull = "Dönüş tarihi girilmelidir.";
         internal static string CarImagesAdded = "Araç resmi eklendi";
         internal static string CarImagesDeleted = "Araç resmi silindi";
         internal static string CarImagesListed = "Araç resimleri listelendi";
         internal static string CarImagesUpdated = "Araç resmi güncellendi.";
+        internal static string carImageLimited = "Resim ekleme limit aşıldı";
     }
 }
