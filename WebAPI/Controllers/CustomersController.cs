@@ -13,9 +13,9 @@ namespace WebAPI.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        ICustomersService _customersService;
+        ICustomerService _customersService;
 
-        public CustomersController(ICustomersService customersService)
+        public CustomersController(ICustomerService customersService)
         {
             _customersService = customersService;
         }
@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Customers customers)
+        public IActionResult Add(Customer customers)
         {
             var result = _customersService.Add(customers);
             if (result.Success)
@@ -42,7 +42,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("delete")]
-        public IActionResult Delete(Customers customers)
+        public IActionResult Delete(Customer customers)
         {
             var result = _customersService.Delete(customers);
             if (result.Success)
@@ -53,7 +53,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Customers customers)
+        public IActionResult Update(Customer customers)
         {
             var result = _customersService.Update(customers);
             if (result.Success)

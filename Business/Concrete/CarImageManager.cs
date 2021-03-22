@@ -15,18 +15,18 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class CarImagesManager : ICarImagesService
+    public class CarImageManager : ICarImageService
     {
 
-        ICarImagesDal _carImagesDal;
+        ICarImageDal _carImagesDal;
 
-        public CarImagesManager(ICarImagesDal carImagesDal)
+        public CarImageManager(ICarImageDal carImagesDal)
         {
             _carImagesDal = carImagesDal;
         }
 
         [ValidationAspect(typeof(CarImagesValidator))]
-        public IResult Add(CarImages carImages,IFormFile file)
+        public IResult Add(CarImage carImages,IFormFile file)
         {
             IResult result = BusinessRules.Run(CheckImageLimited(carImages.CarId));
             if (result != null)
@@ -42,26 +42,26 @@ namespace Business.Concrete
 
         }
 
-        public IResult Delete(CarImages carImages)
+        public IResult Delete(CarImage carImages)
         {
             FileHelper.Delete(carImages.ImagePath);
             _carImagesDal.Delete(carImages);
             return new SuccessResult();
         }
 
-        public IDataResult<CarImages> Get(int id)
+        public IDataResult<CarImage> Get(int id)
         {
-            return new SuccessDataResult<CarImages>(_carImagesDal.Get(p => p.Id == id));
+            return new SuccessDataResult<CarImage>(_carImagesDal.Get(p => p.Id == id));
         }
 
-        public IDataResult<List<CarImages>> GetAll()
+        public IDataResult<List<CarImage>> GetAll()
         {
-            return new SuccessDataResult<List<CarImages>>(_carImagesDal.GetAll(), Messages.CarImagesListed);
+            return new SuccessDataResult<List<CarImage>>(_carImagesDal.GetAll(), Messages.CarImagesListed);
 
         }
 
         [ValidationAspect(typeof(CarImagesValidator))]
-        public IResult Update(CarImages carImages, IFormFile file)
+        public IResult Update(CarImage carImages, IFormFile file)
         {
             IResult result = BusinessRules.Run(CheckImageLimited(carImages.CarId));
             if (result != null)

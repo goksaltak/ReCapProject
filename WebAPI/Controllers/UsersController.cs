@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,17 +14,17 @@ namespace WebAPI.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        IUsersService _usersService;
+        IUserService _userService;
 
-        public UsersController(IUsersService usersService)
+        public UsersController(IUserService userService)
         {
-            _usersService = usersService;
+            _userService = userService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _usersService.GetAll();
+            var result = _userService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -32,9 +33,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Users users)
+        public IActionResult Add(User user)
         {
-            var result = _usersService.Add(users);
+            var result = _userService.Add(user);
             if (result.Success)
             {
                 return Ok(result);
@@ -42,9 +43,9 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("delete")]
-        public IActionResult Delete(Users users)
+        public IActionResult Delete(User user)
         {
-            var result = _usersService.Delete(users);
+            var result = _userService.Delete(user);
             if (result.Success)
             {
                 return Ok(result);
@@ -53,9 +54,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Users users)
+        public IActionResult Update(User users)
         {
-            var result = _usersService.Update(users);
+            var result = _userService.Update(users);
             if (result.Success)
             {
                 return Ok(result);

@@ -9,17 +9,17 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class RentalsManager:IRentalsService
+    public class RentalManager:IRentalService
     {
-        IRentalsDal _rentalsDal;
+        IRentalDal _rentalsDal;
 
-        public RentalsManager(IRentalsDal rentalsDal)
+        public RentalManager(IRentalDal rentalsDal)
         {
             _rentalsDal = rentalsDal;
         }
 
 
-        public IResult Add(Rentals rentals)
+        public IResult Add(Rental rentals)
         {
             if (rentals.ReturnDate!=null)
             {
@@ -34,17 +34,17 @@ namespace Business.Concrete
 
         }
 
-        public IResult Delete(Rentals rentals)
+        public IResult Delete(Rental rentals)
         {
             _rentalsDal.Delete(rentals);
             return new SuccessResult(Messages.RentalsDeleted);
         }
 
-        public IDataResult<List<Rentals>> GetAll()
+        public IDataResult<List<Rental>> GetAll()
         {
-            return new SuccessDataResult<List<Rentals>>(_rentalsDal.GetAll(), Messages.RentalsListed);
+            return new SuccessDataResult<List<Rental>>(_rentalsDal.GetAll(), Messages.RentalsListed);
         }
-        public IResult Update(Rentals rentals)
+        public IResult Update(Rental rentals)
         {
             _rentalsDal.Update(rentals);
             return new SuccessResult(Messages.RentalsUpdated);

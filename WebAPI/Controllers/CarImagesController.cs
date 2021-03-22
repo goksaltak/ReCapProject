@@ -13,15 +13,15 @@ namespace WebAPI.Controllers
     [ApiController]
     public class CarImagesController : ControllerBase
     {
-        ICarImagesService _carImagesService;
+        ICarImageService _carImagesService;
 
-        public CarImagesController(ICarImagesService carImagesService)  
+        public CarImagesController(ICarImageService carImagesService)  
         {
             _carImagesService = carImagesService;
         }
 
         [HttpPost("add")]
-        public IActionResult Add([FromForm] CarImages carImages, [FromForm(Name = ("Image"))] IFormFile file)
+        public IActionResult Add([FromForm] CarImage carImages, [FromForm(Name = ("Image"))] IFormFile file)
         {
             var result = _carImagesService.Add(carImages,file);
             if (result.Success)

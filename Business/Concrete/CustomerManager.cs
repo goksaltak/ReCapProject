@@ -9,33 +9,33 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class CustomersManager : ICustomersService
+    public class CustomerManager : ICustomerService
     {
-        ICustomersDal _customersDal;
+        ICustomerDal _customersDal;
 
-        public CustomersManager(ICustomersDal customersDal)
+        public CustomerManager(ICustomerDal customersDal)
         {
             _customersDal = customersDal;
         }
 
 
-        public IResult Add(Customers customers)
+        public IResult Add(Customer customers)
         {
             _customersDal.Add(customers);
             return new SuccessResult(Messages.CustomersAdded);
         }
 
-        public IResult Delete(Customers customers)
+        public IResult Delete(Customer customers)
         {
             _customersDal.Delete(customers);
             return new SuccessResult(Messages.CustomersDeleted);
         }
 
-        public IDataResult<List<Customers>> GetAll()
+        public IDataResult<List<Customer>> GetAll()
         {
-            return new SuccessDataResult<List<Customers>>(_customersDal.GetAll(), Messages.CustomersListed);
+            return new SuccessDataResult<List<Customer>>(_customersDal.GetAll(), Messages.CustomersListed);
         }
-        public IResult Update(Customers customers)
+        public IResult Update(Customer customers)
         {
             _customersDal.Update(customers);
             return new SuccessResult(Messages.CustomersUpdated);
