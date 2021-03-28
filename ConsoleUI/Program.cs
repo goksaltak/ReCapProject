@@ -17,7 +17,7 @@ namespace ConsoleUI
             //}
 
 
-            CarCreate();
+            //CarCreate();
             //carManager.Delete(new Car { Id = 2 });
             //CarListele();
             //CarUpdate();
@@ -76,7 +76,7 @@ namespace ConsoleUI
             }
 
         }
-
+        
         private static void CarRead()
         {
             CarManager carManager = new CarManager(new EfCarDal());
