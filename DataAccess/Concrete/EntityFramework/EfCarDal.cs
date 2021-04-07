@@ -19,13 +19,14 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = from c in context.Car
                              join b in context.Brand
-                             on c.BrandId equals b.ID
+                             on c.BrandId equals b.Id
                              join cl in context.Color
                              on c.ColorId equals cl.Id
                              select new CarDetailDto
                              {
+                                 Id=c.Id,
                                  ColorId = c.ColorId,
-                                 BrandId = b.ID,
+                                 BrandId = b.Id,
                                  BrandName = b.Name,
                                  ColorName = cl.Name,
                                  ModelYear = c.ModelYear,
@@ -35,5 +36,6 @@ namespace DataAccess.Concrete.EntityFramework
                 return result.ToList();
             }
         }
+
     }
 }

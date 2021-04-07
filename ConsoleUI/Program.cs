@@ -30,6 +30,16 @@ namespace ConsoleUI
             //CustomerAdd();
             //UsersAdd();
             //RentalAdd();
+            BrandTest();
+        }
+
+        private static void BrandTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            foreach (var car in carManager.GetCarsByBrandId(1).Data)
+            {
+                Console.WriteLine(car.BrandId);
+            }
 
         }
 

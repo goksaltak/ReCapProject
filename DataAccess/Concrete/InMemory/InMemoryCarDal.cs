@@ -53,6 +53,10 @@ namespace DataAccess.Concrete.InMemory
         {
             throw new NotImplementedException();
         }
+        public List<RentalDetailDto> RentalDetails()
+        {
+            throw new NotImplementedException();
+        }
 
         public void Update(Car car)
         {
