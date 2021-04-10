@@ -57,6 +57,21 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
         }
 
+        public IDataResult<List<CarDetailDto>> GetCarByBrandDetails(int id)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarByBrandDetails(id));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarByColorDetails(int id)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarByColorDetails(id));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarByDetails(int id)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarByDetails(id));
+        }
+
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
